@@ -5,23 +5,65 @@
 </ion-header>
 
 <ion-content padding>
-  alguma coisa normal
+  <ion-grid >
+    
+    <ion-row>
+      <ion-col size="1" size-sm offset-md="2"  >
+        #
+      </ion-col>
+      <ion-col size="4" size-sm size-md="3">
+        Matricula
+      </ion-col>
+      <ion-col size="4" size-sm size-md="3">
+        Nome
+      </ion-col>
+      <ion-col size="3" size-sm size-md="3">
+        Modulo
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center *ngFor="let aluno of alunos; let index=index" >
+      <ion-col size="1" size-sm offset-md="2" align-self-center> {{ index + 1 }} </ion-col>
+      <ion-col size="4" size-sm size-md="3"> {{ aluno.matricula }} </ion-col>
+      <ion-col size="4" size-sm size-md="3" align-self-center> {{ aluno.nome }} </ion-col>
+      <ion-col size="3" size-sm size-md="3"> {{ aluno.modulo }} </ion-col>
+    </ion-row>
+  
+  </ion-grid>
 
-  <p>alguma coisa no p</p>
+  <table border="1px">
+    <tr>
+      <td></td>
+      <td>Matricula</td>
+      <td>Nome</td>
+      <td>Modulo</td>
+    </tr>
+
+    <tr *ngFor="let aluno of alunos; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ aluno.matricula }}</td>
+      <td>{{ aluno.nome }}</td>
+      <td>{{ aluno.modulo }}</td>
+    </tr>
+  </table>
 
   {{ alunos }}
+  <!--interpolacao-->
 
-  <ion-button>texto do butao</ion-button>
-
-  <ion-button>
-    <ion-icon slot="start" name="star"></ion-icon>
-    Left Icon
-  </ion-button>
-  <ion-button>
-    Left Icon
-    <ion-icon slot="start" name="star"></ion-icon>
-  </ion-button>
-
+  <!--
+    alguma coisa normal
+  
+    <p>alguma coisa no p</p>
+    <ion-button>texto do butao</ion-button>
+    
+    <ion-button>
+      <ion-icon slot="start" name="star"></ion-icon>
+      Left Icon
+    </ion-button>
+    <ion-button>
+      Left Icon
+      <ion-icon slot="start" name="star"></ion-icon>
+    </ion-button>
+    
   <ion-slides pager scrollbar>
     <ion-slide>
       <h1>Slide 1</h1>
@@ -33,10 +75,11 @@
       <h1>Slide 3</h1>
     </ion-slide>
   </ion-slides>
+  
+  <ion-footer>
+    <ion-toolbar>
+      rodape
+    </ion-toolbar>
+  </ion-footer>
+-->
 </ion-content>
-
-<ion-footer>
-  <ion-toolbar>
-    rodape
-  </ion-toolbar>
-</ion-footer>
