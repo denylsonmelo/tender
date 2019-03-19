@@ -5,81 +5,79 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-grid >
-    
-    <ion-row>
-      <ion-col size="1" size-sm offset-md="2"  >
+  <ion-item>
+    <ion-label>{{ titulo }}</ion-label>
+    <ion-toggle
+      [(ngModel)]="modoAdicao"
+      (ionChange)="trocouValorToggle()"
+      color="tertiary"
+    ></ion-toggle>
+  </ion-item>
+
+  <ion-grid *ngIf="!modoAdicao">
+    <ion-row align-items-center>
+      <ion-col
+        size="1"
+        offset-md="1"
+        offset-lg="2"
+        offset-xl="2"
+        align-self-center
+      >
         #
       </ion-col>
-      <ion-col size="4" size-sm size-md="3">
+      <ion-col size="4" size-md="3" size-lg="2" size-xl="3" align-self-center>
         Matricula
       </ion-col>
-      <ion-col size="4" size-sm size-md="3">
+      <ion-col size="4" size-md="4" size-lg="4" size-xl="3" align-self-center>
         Nome
       </ion-col>
-      <ion-col size="3" size-sm size-md="3">
+      <ion-col size="3" size-md="3" size-lg="3" size-xl="2" align-self-center>
         Modulo
       </ion-col>
     </ion-row>
-    <ion-row align-items-center *ngFor="let aluno of alunos; let index=index" >
-      <ion-col size="1" size-sm offset-md="2" align-self-center> {{ index + 1 }} </ion-col>
-      <ion-col size="4" size-sm size-md="3"> {{ aluno.matricula }} </ion-col>
-      <ion-col size="4" size-sm size-md="3" align-self-center> {{ aluno.nome }} </ion-col>
-      <ion-col size="3" size-sm size-md="3"> {{ aluno.modulo }} </ion-col>
+    <ion-row align-items-center *ngFor="let aluno of alunos; let index = index">
+      <ion-col
+        size="1"
+        offset-md="1"
+        offset-lg="2"
+        offset-xl="2"
+        align-self-center
+      >
+        {{ index + 1 }}
+      </ion-col>
+      <ion-col size="4" size-md="3" size-lg="2" size-xl="3" align-self-center>
+        {{ aluno.matricula }}
+      </ion-col>
+      <ion-col size="4" size-md="4" size-lg="4" size-xl="3" align-self-center>
+        {{ aluno.nome }}
+      </ion-col>
+      <ion-col size="3" size-md="3" size-lg="3" size-xl="2" align-self-center>
+        {{ aluno.modulo }}
+      </ion-col>
     </ion-row>
-  
   </ion-grid>
 
-  <table border="1px">
-    <tr>
-      <td></td>
-      <td>Matricula</td>
-      <td>Nome</td>
-      <td>Modulo</td>
-    </tr>
 
-    <tr *ngFor="let aluno of alunos; let i = index">
-      <td>{{ i + 1 }}</td>
-      <td>{{ aluno.matricula }}</td>
-      <td>{{ aluno.nome }}</td>
-      <td>{{ aluno.modulo }}</td>
-    </tr>
-  </table>
+  <ion-item>
+    <ion-label position="fixed">Matricula</ion-label>
+    <ion-input color="tertiary" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="fixed">Nome</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="fixed">Modulo</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
 
-  {{ alunos }}
-  <!--interpolacao-->
-
-  <!--
-    alguma coisa normal
-  
-    <p>alguma coisa no p</p>
-    <ion-button>texto do butao</ion-button>
-    
-    <ion-button>
-      <ion-icon slot="start" name="star"></ion-icon>
-      Left Icon
-    </ion-button>
-    <ion-button>
-      Left Icon
-      <ion-icon slot="start" name="star"></ion-icon>
-    </ion-button>
-    
-  <ion-slides pager scrollbar>
-    <ion-slide>
-      <h1>Slide 1</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Slide 2</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Slide 3</h1>
-    </ion-slide>
-  </ion-slides>
-  
-  <ion-footer>
-    <ion-toolbar>
-      rodape
-    </ion-toolbar>
-  </ion-footer>
--->
+  <ion-button
+    *ngIf="modoAdicao"
+    color="tertiary"
+    expand="block"
+    shape="round"
+    fill="outline"
+  >
+    Adicionar
+  </ion-button>
 </ion-content>
