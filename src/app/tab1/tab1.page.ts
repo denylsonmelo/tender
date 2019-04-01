@@ -7,10 +7,10 @@ import { Aluno } from '../models/classes.model';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  modoAdicao = true;
+  modoAdicao = false;
 
   titulo = 'Listagem de Alunos';
-  alunoASerCadastrado = new Aluno('', 'matricula', '');
+  alunoASerCadastrado = new Aluno('', '', '');
 
   alunos: Array<Aluno> = [
     { nome: 'iuri', matricula: '20172tinf002', modulo: 'modulo IV' },
@@ -18,18 +18,10 @@ export class Tab1Page {
     { nome: 'davi', matricula: '20161tinf013', modulo: 'modulo 8' }
   ];
 
-  pegarValorTeclado(event) {
-    console.log(event);
-
-  }
-
   adicionar() {
-    console.log(this.alunoASerCadastrado);
-    this.alunos.push({
-      nome: '',
-      matricula: '',
-      modulo: ''
-    });
+    this.alunos.push(this.alunoASerCadastrado);
+    this.alunoASerCadastrado = new Aluno('', '', '');
+    this.modoAdicao = false;
   }
 
   trocouValorToggle() {
