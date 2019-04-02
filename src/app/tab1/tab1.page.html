@@ -1,65 +1,125 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>{{ titulo }}</ion-title>
-    <ion-toggle [(ngModel)]="modoAdicao" (ionChange)="trocouValorToggle()" color="tertiary" slot="end"></ion-toggle>
+    <!-- <ion-toggle [(ngModel)]="modoAdicao" (ionChange)="trocouValorToggle()" color="tertiary" slot="end"></ion-toggle>
+  -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+  <form [formGroup]="formularioAluno" (ngSubmit)="adicionar()">
+    <ion-card>
+      <ion-card-content *ngIf="!modoAdicao">
+        <ion-grid>
+          <ion-row align-items-center>
+            <ion-col
+              size="1"
+              offset-md="1"
+              offset-lg="2"
+              offset-xl="2"
+              align-self-center
+            >
+              #
+            </ion-col>
+            <ion-col
+              size="4"
+              size-md="3"
+              size-lg="2"
+              size-xl="3"
+              align-self-center
+            >
+              Matricula
+            </ion-col>
+            <ion-col
+              size="4"
+              size-md="4"
+              size-lg="4"
+              size-xl="3"
+              align-self-center
+            >
+              Nome
+            </ion-col>
+            <ion-col
+              size="3"
+              size-md="3"
+              size-lg="3"
+              size-xl="2"
+              align-self-center
+            >
+              Modulo
+            </ion-col>
+          </ion-row>
+          <ion-row
+            align-items-center
+            *ngFor="let aluno of alunos; let index = index"
+          >
+            <ion-col
+              size="1"
+              offset-md="1"
+              offset-lg="2"
+              offset-xl="2"
+              align-self-center
+            >
+              {{ index + 1 }}
+            </ion-col>
+            <ion-col
+              size="4"
+              size-md="3"
+              size-lg="2"
+              size-xl="3"
+              align-self-center
+            >
+              {{ aluno.matricula }}
+            </ion-col>
+            <ion-col
+              size="4"
+              size-md="4"
+              size-lg="4"
+              size-xl="3"
+              align-self-center
+            >
+              {{ aluno.nome }}
+            </ion-col>
+            <ion-col
+              size="3"
+              size-md="3"
+              size-lg="3"
+              size-xl="2"
+              align-self-center
+            >
+              {{ aluno.modulo }}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
 
-  <ion-card>
+      <ion-card-content *ngIf="modoAdicao">
+        <ion-item>
+          <ion-label position="fixed">Matricula</ion-label>
+          <ion-input color="tertiary" formControlName="matriculaAluno">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="fixed">Nome</ion-label>
+          <ion-input formControlName="nomeAluno"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="fixed">Modulo</ion-label>
+          <ion-input formControlName="moduloAluno"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
 
-    <ion-card-content *ngIf="!modoAdicao">
-      <ion-grid>
-        <ion-row align-items-center>
-          <ion-col size="1" offset-md="1" offset-lg="2" offset-xl="2" align-self-center>
-            #
-          </ion-col>
-          <ion-col size="4" size-md="3" size-lg="2" size-xl="3" align-self-center>
-            Matricula
-          </ion-col>
-          <ion-col size="4" size-md="4" size-lg="4" size-xl="3" align-self-center>
-            Nome
-          </ion-col>
-          <ion-col size="3" size-md="3" size-lg="3" size-xl="2" align-self-center>
-            Modulo
-          </ion-col>
-        </ion-row>
-        <ion-row align-items-center *ngFor="let aluno of alunos; let index = index">
-          <ion-col size="1" offset-md="1" offset-lg="2" offset-xl="2" align-self-center>
-            {{ index + 1 }}
-          </ion-col>
-          <ion-col size="4" size-md="3" size-lg="2" size-xl="3" align-self-center>
-            {{ aluno.matricula }}
-          </ion-col>
-          <ion-col size="4" size-md="4" size-lg="4" size-xl="3" align-self-center>
-            {{ aluno.nome }}
-          </ion-col>
-          <ion-col size="3" size-md="3" size-lg="3" size-xl="2" align-self-center>
-            {{ aluno.modulo }}
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
-
-    <ion-card-content *ngIf="modoAdicao">
-      <ion-item>
-        <ion-label position="fixed">Matricula</ion-label>
-        <ion-input color="tertiary" [(ngModel)]="alunoASerCadastrado.matricula">
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="fixed">Nome</ion-label>
-        <ion-input [(ngModel)]="alunoASerCadastrado.nome"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="fixed">Modulo</ion-label>
-        <ion-input [(ngModel)]="alunoASerCadastrado.modulo"></ion-input>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-button *ngIf="modoAdicao" (click)="adicionar()" color="tertiary" expand="block" shape="round" fill="outline">
-    Adicionar
-  </ion-button>
+    <ion-button
+      type="submit"
+      [disabled]="!formularioAluno.valid"
+      *ngIf="modoAdicao"
+      color="tertiary"
+      expand="block"
+      shape="round"
+      fill="outline"
+    >
+      Adicionar
+    </ion-button>
+  </form>
 </ion-content>
