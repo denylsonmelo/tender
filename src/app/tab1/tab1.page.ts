@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { AlertController } from '@ionic/angular';
 
@@ -11,11 +11,23 @@ import { Aluno } from '../models/classes.model';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
   formularioAluno = new FormGroup({
-    matriculaAluno: new FormControl(''),
-    nomeAluno: new FormControl(''),
-    moduloAluno: new FormControl(''),
+    matriculaAluno: new FormControl('', [
+      Validators.required,
+      Validators.minLength(13),
+      Validators.maxLength(13),
+      Validators.pattern('201*')
+    ]),
+    nomeAluno: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(25),
+    ]),
+    moduloAluno: new FormControl('', [
+      Validators.required,
+      Validators.minLength(1),
+      Validators.maxLength(3),
+    ])
   });
 
   modoAdicao = true;
@@ -32,7 +44,7 @@ export class Tab1Page {
   constructor(public alertController: AlertController) {}
 
   async exibirAlerta() {
-     this.alerta = await this.alertController.create({
+    this.alerta = await this.alertController.create({
       message: 'Salvando ...',
       backdropDismiss: false,
       mode: 'ios',
@@ -48,6 +60,8 @@ export class Tab1Page {
 
   async adicionar() {
     await this.exibirAlerta();
+
+    console.log(this.formularioAluno);
 
     // localStorage.setItem('alunoCadastradoAgora', this.alunoASerCadastrado.nome);
 
