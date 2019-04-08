@@ -11,37 +11,48 @@ import { Aluno } from '../models/classes.model';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  formularioToggle = new FormGroup({
+    toggle: new FormControl(false, [])
+  });
+
   formularioAluno = new FormGroup({
-    matriculaAluno: new FormControl('', [
+    matricula: new FormControl('', [
       Validators.required,
       Validators.minLength(13),
       Validators.maxLength(13),
-      Validators.pattern('201*')
+      // 2016 1 t inf 0 001
+      // 2019 1 s pgp 0 270
+      // ('(20)(0|1)([0-8])(1|2)(tinf)([0-9]{4})')
+      Validators.pattern(
+        '(20)(0|1)([0-9])(1|2)(t|s)(inf|edi|ele|pgp|adm|fis|qui)([0-9]){4}'
+      )
     ]),
-    nomeAluno: new FormControl('', [
+    nome: new FormControl('', [
       Validators.required,
       Validators.minLength(3),
-      Validators.maxLength(25),
+      Validators.maxLength(25)
     ]),
-    moduloAluno: new FormControl('', [
+    modulo: new FormControl('', [
       Validators.required,
       Validators.minLength(1),
-      Validators.maxLength(3),
+      Validators.maxLength(3)
     ])
   });
 
-  modoAdicao = true;
+  modoAdicao = false;
   titulo = 'Listagem de Alunos';
   alunoASerCadastrado = new Aluno('', '', '');
   alerta;
 
-  alunos: Array<Aluno> = [
-    { nome: 'iuri', matricula: '20172tinf002', modulo: 'modulo IV' },
-    { nome: 'elias', matricula: '20172tinf005', modulo: 'modulo IV' },
-    { nome: 'davi', matricula: '20161tinf013', modulo: 'modulo 8' }
-  ];
+  alunos: Array<Aluno> = [];
 
-  constructor(public alertController: AlertController) {}
+  constructor(public alertController: AlertController) {
+    this.alunos.push(
+      JSON.parse(
+        localStorage.getItem('alunos')
+      )
+    );
+  }
 
   async exibirAlerta() {
     this.alerta = await this.alertController.create({
@@ -61,11 +72,18 @@ export class Tab1Page {
   async adicionar() {
     await this.exibirAlerta();
 
-    console.log(this.formularioAluno);
+    // console.log(this.formularioAluno.value);
+    // console.log(this.alunoASerCadastrado);
 
     // localStorage.setItem('alunoCadastradoAgora', this.alunoASerCadastrado.nome);
 
-    this.alunos.push(this.alunoASerCadastrado);
+    /* this.alunos.push({
+      nome: this.formularioAluno.value.nomeAluno,
+      modulo: this.formularioAluno.value.moduloAluno,
+      matricula: this.formularioAluno.value.matriculaAluno
+    });*/
+
+    this.alunos.push(this.formularioAluno.value);
     this.alunoASerCadastrado = new Aluno('', '', '');
     this.modoAdicao = false;
 
@@ -73,6 +91,7 @@ export class Tab1Page {
   }
 
   trocouValorToggle() {
+    this.modoAdicao = !this.modoAdicao;
     this.modoAdicao
       ? (this.titulo = 'Cadastro de Alunos')
       : (this.titulo = 'Listagem de Alunos');

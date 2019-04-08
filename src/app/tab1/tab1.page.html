@@ -1,9 +1,16 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>{{ titulo }}</ion-title>
-    <!-- <ion-toggle [(ngModel)]="modoAdicao" (ionChange)="trocouValorToggle()" color="tertiary" slot="end"></ion-toggle>
-  -->
-  </ion-toolbar>
+  <form [formGroup]="formularioToggle">
+    <ion-toolbar>
+      <ion-title>{{ titulo }}</ion-title>
+
+      <ion-toggle
+        formControlName="toggle"
+        (ionChange)="trocouValorToggle()"
+        color="tertiary"
+        slot="end"
+      ></ion-toggle>
+    </ion-toolbar>
+  </form>
 </ion-header>
 
 <ion-content padding>
@@ -96,16 +103,15 @@
       <ion-card-content *ngIf="modoAdicao">
         <ion-item>
           <ion-label position="fixed">Matricula</ion-label>
-          <ion-input color="tertiary" formControlName="matriculaAluno">
-          </ion-input>
+          <ion-input color="tertiary" formControlName="matricula"> </ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="fixed">Nome</ion-label>
-          <ion-input formControlName="nomeAluno"></ion-input>
+          <ion-input formControlName="nome"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="fixed">Modulo</ion-label>
-          <ion-input formControlName="moduloAluno"></ion-input>
+          <ion-input formControlName="modulo"></ion-input>
         </ion-item>
       </ion-card-content>
     </ion-card>
@@ -122,5 +128,4 @@
       Adicionar
     </ion-button>
   </form>
-
 </ion-content>
