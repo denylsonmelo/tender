@@ -14,9 +14,15 @@
 </ion-header>
 
 <ion-content padding>
+
   <form [formGroup]="formularioAluno" (ngSubmit)="adicionar()">
     <ion-card>
-      <ion-card-content *ngIf="!modoAdicao">
+
+      <ion-card-content *ngIf="alunos[0] == null" >
+        <h1>Nenhum aluno cadastrado</h1>
+      </ion-card-content>
+
+      <ion-card-content *ngIf="(alunos[0] !== null && !modoAdicao)">
         <ion-grid>
           <ion-row align-items-center>
             <ion-col
@@ -76,7 +82,7 @@
               size-xl="3"
               align-self-center
             >
-              {{ aluno.matricula }}
+              {{ aluno?.matricula }}
             </ion-col>
             <ion-col
               size="4"
@@ -85,7 +91,7 @@
               size-xl="3"
               align-self-center
             >
-              {{ aluno.nome }}
+              {{ aluno?.nome }}
             </ion-col>
             <ion-col
               size="3"
@@ -94,7 +100,7 @@
               size-xl="2"
               align-self-center
             >
-              {{ aluno.modulo }}
+              {{ aluno?.modulo }}
             </ion-col>
           </ion-row>
         </ion-grid>

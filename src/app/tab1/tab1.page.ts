@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 
 import { Aluno } from '../models/classes.model';
+import { log } from 'util';
 
 @Component({
   selector: 'app-tab1',
@@ -47,11 +48,11 @@ export class Tab1Page {
   alunos: Array<Aluno> = [];
 
   constructor(public alertController: AlertController) {
-    this.alunos.push(
-      JSON.parse(
-        localStorage.getItem('alunos')
-      )
-    );
+
+    const alunosCache = localStorage.getItem('alunos');
+    if (alunosCache !== null) {
+      this.alunos = JSON.parse(atob(alunosCache));
+    }
   }
 
   async exibirAlerta() {
@@ -75,8 +76,6 @@ export class Tab1Page {
     // console.log(this.formularioAluno.value);
     // console.log(this.alunoASerCadastrado);
 
-    // localStorage.setItem('alunoCadastradoAgora', this.alunoASerCadastrado.nome);
-
     /* this.alunos.push({
       nome: this.formularioAluno.value.nomeAluno,
       modulo: this.formularioAluno.value.moduloAluno,
@@ -84,7 +83,8 @@ export class Tab1Page {
     });*/
 
     this.alunos.push(this.formularioAluno.value);
-    this.alunoASerCadastrado = new Aluno('', '', '');
+
+    localStorage.setItem('alunos', btoa(JSON.stringify(this.alunos)));
     this.modoAdicao = false;
 
     await this.fecharAlerta();
