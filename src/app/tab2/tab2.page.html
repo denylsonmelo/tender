@@ -2,10 +2,35 @@
 
 <ion-content>
   <ion-card>
-
     <ion-card-content>
-      Keep close to Nature's heart... and break clear away, once in awhile, and
-      climb a mountain or spend a week in the woods. Wash your spirit clean.
+      <img [src]="pessoas[1].urlImagem" />
+      <span> {{ pessoas[1].nome }} </span>
+      <span> {{ pessoas[1].dataNascimento }} </span>
+      <p> {{ pessoas[1].emprego }} </p>
+      <p> {{ pessoas[1].estudo }} </p>
+      <p> {{ pessoas[1].localizacao }} </p>
     </ion-card-content>
   </ion-card>
 </ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button>
+        <ion-icon slot="icon-only" name="refresh"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="star"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="heart"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="flash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
