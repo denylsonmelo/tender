@@ -1,9 +1,38 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Two
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-header> </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+    
+      <img [src]="pessoas[1].urlImagem" />
+      <span> {{ pessoas[1].nome }} </span>
+      <span> {{ pessoas[1].dataNascimento }} </span>
+      <p> {{ pessoas[1].emprego }} </p>
+      <p> {{ pessoas[1].estudo }} </p>
+      <p> {{ pessoas[1].localizacao }} </p>
+    
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button>
+        <ion-icon slot="icon-only" name="refresh"  style="color:yellow" id="menor"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="close" style="color:red" id="maior"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="star" style="color:blue" id="menor"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="heart" style="color:green" id="maior"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="flash" style="color:purple" id="menor"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
