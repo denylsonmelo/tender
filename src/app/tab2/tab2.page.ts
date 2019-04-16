@@ -12,7 +12,7 @@ export class Tab2Page {
       nome: 'Steve Rogers',
       dataNascimento: new Date(1918, 7, 4),
       sexo: 'masculino',
-      descricao: 'melhor idade, já fui um picolé em gelo, um clássico',
+      descricao: 'melhor idade, já fui um picolé em gelo, vintage',
       localizacao: 'wakanda',
       emprego: 'nomade',
       estudo: 'tenho',
