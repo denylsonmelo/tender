@@ -1,3 +1,43 @@
+.capa-pessoa {
+    margin-top: 1%;
+    margin-left: 9%;
+    width: 85%;
+}
+
+.apresentacao-pessoa {
+    font-weight: bolder;
+    font-size: 2em;
+    color: white;
+    position: absolute;
+    bottom: 10%;
+    left: 2%;
+    margin: 0;
+}
+.emprego-pessoa {
+    font-size: 1.1em;
+    color: white;
+    position: absolute;
+    bottom: 7%;
+    left: 2%;
+    margin: 0;
+}
+.estudo-pessoa {
+    font-size: 1.1em;
+    color: white;
+    position: absolute;
+    bottom: 4.5%;
+    left: 2%;
+    margin: 0;
+}
+.localizacao-pessoa {
+    font-size: 1.2em;
+    color: white;
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+    margin: 0;
+}
+
 ion-buttons{
     justify-content: center;
 }

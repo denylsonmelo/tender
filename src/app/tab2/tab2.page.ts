@@ -33,4 +33,10 @@ export class Tab2Page {
       urlImagem: './../../assets/images/scarlet.jpeg'
     }
   ];
+
+  calcularAnos(){
+    var diferencaDatas =  Date.now() - this.pessoas[1].dataNascimento.getTime();
+    var anos = new Date(diferencaDatas); 
+    return Math.abs(anos.getUTCFullYear() - 1970);
+  }
 }

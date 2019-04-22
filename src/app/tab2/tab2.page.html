@@ -1,15 +1,14 @@
-<ion-header> </ion-header>
+<ion-header no-border> </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-content>
+
+  <ion-card class="capa-pessoa">
       <img [src]="pessoas[1].urlImagem" />
-      <span> {{ pessoas[1].nome }} </span>
-      <span> {{ pessoas[1].dataNascimento }} </span>
-      <p> {{ pessoas[1].emprego }} </p>
-      <p> {{ pessoas[1].estudo }} </p>
-      <p> {{ pessoas[1].localizacao }} </p>
-    </ion-card-content>
+      <span class="apresentacao-pessoa"> {{ pessoas[1].nome }} </span>
+      <!--<span class="apresentacao-pessoa"> {{ calcularAnos() }} </span>-->
+      <p class="emprego-pessoa"> {{ pessoas[1].emprego }} </p>
+      <p class="estudo-pessoa"> {{ pessoas[1].estudo }} </p>
+      <p class="localizacao-pessoa"> {{ pessoas[1].localizacao }} </p>
   </ion-card>
 </ion-content>
 
