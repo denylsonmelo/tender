@@ -8,18 +8,34 @@ import * as firebase from 'firebase/app';
   providedIn: 'root'
 })
 export class AuthService {
-
   user: Observable<firebase.User>;
   constructor(private autenticacao: AngularFireAuth) {
     this.user = autenticacao.authState;
+  }
 
-   }
+  criarUsuario(usuario: string, senha: string) {
+    this.autenticacao.auth
+      .createUserWithEmailAndPassword(usuario, senha)
+      .then(sucesso => {
+        console.log(sucesso);
+      }) // quando dar certo
+      .catch(erro => {
+        console.log(erro);
+      }); // quando dar erro
+  }
 
-   login() {
-     this.autenticacao
-      .auth
-      .signInWithEmailAndPassword('email', 'senha')
-      .then() // quando dar certo
-      .catch(); // quando dar erro
-   }
+  logar(usuario: string, senha: string) {
+    this.autenticacao.auth
+      .signInWithEmailAndPassword(usuario, senha)
+      .then(sucesso => {
+        console.log(sucesso);
+      }) // quando dar certo
+      .catch(erro => {
+        console.log(erro);
+      }); // quando dar erro
+  }
+
+  logout() {
+    this.autenticacao.auth.signOut();
+  }
 }
