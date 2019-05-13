@@ -23,4 +23,8 @@ export class Tab1Page {
   login(){
     this.auth.logar(this.usuario, this.senha);
   }
+
+  facebookLogin(){
+    this.auth.logarComFacebook();
+  }
 }

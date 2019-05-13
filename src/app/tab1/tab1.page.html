@@ -1,7 +1,14 @@
 <ion-header> </ion-header>
 
 <ion-content padding>
-  <h1 *ngIf="auth.user | async">Welcome {{ (auth.user | async)?.email }}!</h1>
+  <div *ngIf="auth.user | async">
+    <img [src]="(auth.user | async)?.photoURL" />
+    <h1>
+      Welcome {{ (auth.user | async)?.displayName }}! 
+      <br> 
+      email:{{ (auth.user | async)?.email }}
+    </h1>
+  </div>
 
   <div *ngIf="!(auth.user | async)">
     <input type="text" [(ngModel)]="usuario" placeholder="email" />
@@ -13,6 +20,9 @@
 
     <button (click)="login()" [disabled]="!usuario || !senha">
       Login
+    </button>
+    <button (click)="facebookLogin()">
+      Facebook
     </button>
   </div>
 

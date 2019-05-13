@@ -13,6 +13,19 @@ export class AuthService {
     this.user = autenticacao.authState;
   }
 
+  logarComFacebook() {
+      const provider = new firebase.auth.FacebookAuthProvider();
+      // provider.addScope('user_birthday');
+      this.autenticacao.auth
+        .signInWithPopup(provider)
+        .then(sucesso => {
+            console.log(sucesso);
+      })
+      .catch( erro => {
+        console.log(erro);
+      });
+ }
+
   criarUsuario(usuario: string, senha: string) {
     this.autenticacao.auth
       .createUserWithEmailAndPassword(usuario, senha)
