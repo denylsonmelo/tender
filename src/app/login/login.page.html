@@ -1,9 +1,34 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content padding slot="fixed">
+  <div>
+    <ion-img src="./../../assets/icon/tender-logo.svg"> </ion-img>
+    <div class="butoes">
+      <span>
+        Ao entrar você concorda com nosos <a>Termos de Serviço</a> e
+        <a>Politica de Privacidade</a></span
+      >
 
-<ion-content>
+      <ion-button
+        expand="block"
+        shape="round"
+        size="large"
+        (click)="login()"
+      >
+        {{ "fazer login com facebook" | uppercase }}
+      </ion-button>
+      <ion-button
+        color="medium"
+        fill="outline"
+        expand="block"
+        shape="round"
+        size="large"
+        (click)="facebookLogin()"
+      >
+        {{ "fazer login com email" | uppercase }}
+      </ion-button>
 
+      <div class="register">
+        <span> Registre-se </span>
+      </div>
+    </div>
+  </div>
 </ion-content>
