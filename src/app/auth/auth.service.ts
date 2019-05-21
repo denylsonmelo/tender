@@ -15,17 +15,11 @@ export class AuthService {
     this.user = autenticacao.authState;
   }
 
-  logarComFacebook() {
+  logarComFacebook(): Promise<any> {
       const provider = new firebase.auth.FacebookAuthProvider();
       // provider.addScope('user_birthday');
-      this.autenticacao.auth
-        .signInWithPopup(provider)
-        .then(sucesso => {
-            console.log(sucesso);
-      })
-      .catch( erro => {
-        console.log(erro);
-      });
+      return this.autenticacao.auth
+        .signInWithPopup(provider);
  }
 
   criarUsuario(usuario: string, senha: string) {
