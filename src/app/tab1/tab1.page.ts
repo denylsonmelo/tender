@@ -7,24 +7,15 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  usuario: string;
-  senha: string;
 
-  constructor(public auth: AuthService) {}
+usuario
 
-  criarUsuario() {
-    this.auth.criarUsuario(this.usuario, this.senha);
-  }
-
-  sair(){
+  logout() {
     this.auth.logout();
   }
 
-  login(){
-    this.auth.logar(this.usuario, this.senha);
-  }
 
-  facebookLogin(){
-    this.auth.logarComFacebook();
+  constructor(private auth: AuthService) {
+    this.usuario = this.auth.user;
   }
 }
