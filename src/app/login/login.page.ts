@@ -1,7 +1,7 @@
-import { AngularFirestore } from '@angular/fire/firestore';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
+
+import { AutenticacaoService } from '../services/autenticacao.service';
 
 @Component({
   selector: 'app-login',
@@ -42,9 +42,8 @@ export class LoginPage implements OnInit {
   }
 
   constructor(
-    private auth: AuthService,
+    private auth: AutenticacaoService,
     private router: Router,
-    private store: AngularFirestore
   ) {}
 
   ngOnInit() {}

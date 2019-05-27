@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
+import { AutenticacaoService } from '../services/autenticacao.service';
 
 @Component({
   selector: 'app-tab1',
@@ -8,14 +8,14 @@ import { AuthService } from '../auth/auth.service';
 })
 export class Tab1Page {
 
-usuario
+usuario;
 
   logout() {
     this.auth.logout();
   }
 
 
-  constructor(private auth: AuthService) {
+  constructor(private auth: AutenticacaoService) {
     this.usuario = this.auth.user;
   }
 }
