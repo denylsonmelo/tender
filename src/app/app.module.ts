@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 
 import { AutenticacaoService } from './services/autenticacao.service';
+import { ArmazenamentoService } from './services/armazenamento.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +32,7 @@ import { AutenticacaoService } from './services/autenticacao.service';
     StatusBar,
     SplashScreen,
     AutenticacaoService,
+    ArmazenamentoService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
