@@ -23,7 +23,7 @@ export class LoginPage implements OnInit {
           dataNascimento: sucesso.additionalUserInfo.profile.birthday,
         };
 
-        this.store.doc(`/usuarios/${usuario.uid}`).set(usuario)
+        /*this.store.doc(`/usuarios/${usuario.uid}`).set(usuario)
           .then(novoSucesso => {
             console.log('novo sucesso');
             console.log(novoSucesso);
@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
             console.log('novo sucesso');
             console.log(novoErro);
           });
-
+*/
         this.router.navigate(['/tabs/tab2']);
       })
       .catch(erro => {

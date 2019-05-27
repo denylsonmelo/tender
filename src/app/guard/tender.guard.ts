@@ -7,13 +7,14 @@ import {
   Router
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { AuthService } from './auth.service';
+
+import { AutenticacaoService } from '../services/autenticacao.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TenderGuard implements CanActivate {
-  constructor(private router: Router, private service: AuthService) {}
+  constructor(private router: Router, private service: AutenticacaoService) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
