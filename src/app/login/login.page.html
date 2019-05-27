@@ -21,12 +21,12 @@
         expand="block"
         shape="round"
         size="large"
-        (click)="facebookLogin()"
+        (click)="irParaLoginEmail()"
       >
         {{ "fazer login com email" | uppercase }}
       </ion-button>
 
-      <div class="register">
+      <div class="register" (click)="irParaRegistro()" >
         <span> Registre-se </span>
       </div>
     </div>
