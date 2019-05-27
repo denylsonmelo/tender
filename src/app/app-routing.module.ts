@@ -9,7 +9,9 @@ const routes: Routes = [
     loadChildren: './perfil/perfil.module#PerfilPageModule' ,
     // canActivate: [TenderGuard]
   },
-  { path: 'login', loadChildren: './login/login.module#LoginPageModule' }
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'login-com-email', loadChildren: './loginComEmail/login-com-email/login-com-email.module#LoginComEmailPageModule' },
+  { path: 'login-com-email', loadChildren: './login-com-email/login-com-email.module#LoginComEmailPageModule' }
 ];
 @NgModule({
   imports: [

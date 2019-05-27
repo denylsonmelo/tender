@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
   }
 
   irParaLoginEmail() {
-    this.router.navigate(['/loginComEmail']);
+    this.router.navigate(['/login-com-email']);
   }
 
   irParaRegistro() {
