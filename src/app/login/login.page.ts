@@ -11,22 +11,18 @@ import { AutenticacaoService } from '../services/autenticacao.service';
   styleUrls: ['./login.page.scss']
 })
 export class LoginPage implements OnInit {
-  login() {
+  async login() {
+    const alert = await this.exibirAlert();
 
-    alert.present();
-
-    this.auth.logarComFacebook()
+    this.auth
+      .logarComFacebook()
       .then(sucesso => {
-
         alert.dismiss();
-
         this.router.navigate(['/tabs/tab2']);
       })
       .catch(erro => {
-
         alert.dismiss();
-        toast.present();
-
+        this.exibirToast(erro);
         console.log('errrro');
         console.log(erro);
       });
@@ -40,11 +36,28 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/registre-se']);
   }
 
+  async exibirAlert() {
+    const alert = await this.alertController.create({
+      message: 'Conectando ao facebook ...'
+    });
+
+    await alert.present();
+    return alert;
+  }
+
+  async exibirToast(mensagem: string) {
+    const toast = await this.toastController.create({
+      message: mensagem,
+      duration: 2000
+    });
+    toast.present();
+  }
+
   constructor(
     private auth: AutenticacaoService,
     private router: Router,
     public alertController: AlertController,
-    public toastController: ToastController,
+    public toastController: ToastController
   ) {}
 
   ngOnInit() {}
