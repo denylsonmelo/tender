@@ -16,15 +16,13 @@ export class LoginPage implements OnInit {
 
     this.auth
       .logarComFacebook()
-      .then(sucesso => {
+      .then(() => {
         alert.dismiss();
         this.router.navigate(['/tabs/tab2']);
       })
       .catch(erro => {
         alert.dismiss();
         this.exibirToast(erro);
-        console.log('errrro');
-        console.log(erro);
       });
   }
 
