@@ -3,13 +3,11 @@ import { Observable } from 'rxjs';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
-import { Promise } from 'q';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticacaoService {
-
   user: Observable<firebase.User>;
 
   constructor(private autenticacao: AngularFireAuth) {
@@ -17,12 +15,18 @@ export class AutenticacaoService {
   }
 
   logarComFacebook(): Promise<any> {
-      const provider = new firebase.auth.FacebookAuthProvider();
-      provider.addScope('user_birthday');
-      this.autenticacao.auth
-        .signInWithPopup(provider).then(
+    const provider = new firebase.auth.FacebookAuthProvider();
+    provider.addScope('user_birthday');
+    return this.autenticacao.auth
+      .signInWithPopup(provider)
+      .then(sucesso => {
+        return Promise.resolve();
+      })
+      .catch(erro => {
+        return Promise.reject(erro.message);
+      });
 
-          console.log(sucesso);
+    /*
 
         const usuario = {
           nome: sucesso.user.displayName,
@@ -31,9 +35,8 @@ export class AutenticacaoService {
           uid: sucesso.user.uid,
           dataNascimento: sucesso.additionalUserInfo.profile.birthday,
         };
-        return Promise.of(true);
-        ). catch (return Promise.of(false); )
- }
+        */
+  }
 
   criarUsuario(usuario: string, senha: string) {
     this.autenticacao.auth
