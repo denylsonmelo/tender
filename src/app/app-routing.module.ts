@@ -10,7 +10,6 @@ const routes: Routes = [
     // canActivate: [TenderGuard]
   },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-  { path: 'login-com-email', loadChildren: './loginComEmail/login-com-email/login-com-email.module#LoginComEmailPageModule' },
   { path: 'login-com-email', loadChildren: './login-com-email/login-com-email.module#LoginComEmailPageModule' },
   { path: 'registre-se', loadChildren: './registre-se/registre-se.module#RegistreSePageModule' }
 ];
