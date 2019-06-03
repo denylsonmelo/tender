@@ -4,13 +4,18 @@ import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 
+import { ArmazenamentoService } from './armazenamento.service';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticacaoService {
   user: Observable<firebase.User>;
 
-  constructor(private autenticacao: AngularFireAuth) {
+  constructor(
+    private autenticacao: AngularFireAuth,
+    private armazenamento: ArmazenamentoService
+    ) {
     this.user = autenticacao.authState;
   }
 
@@ -20,13 +25,6 @@ export class AutenticacaoService {
     return this.autenticacao.auth
       .signInWithPopup(provider)
       .then(sucesso => {
-        return Promise.resolve();
-      })
-      .catch(erro => {
-        return Promise.reject(erro.message);
-      });
-
-    /*
 
         const usuario = {
           nome: sucesso.user.displayName,
@@ -35,7 +33,16 @@ export class AutenticacaoService {
           uid: sucesso.user.uid,
           dataNascimento: sucesso.additionalUserInfo.profile.birthday,
         };
-        */
+
+        this.armazenamento.salvar('usuarios', usuario);
+
+        return Promise.resolve();
+      })
+      .catch(erro => {
+        return Promise.reject(erro.message);
+      });
+
+
   }
 
   criarUsuario(usuario: string, senha: string) {

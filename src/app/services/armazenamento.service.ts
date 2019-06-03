@@ -1,21 +1,23 @@
 import { Injectable } from '@angular/core';
 
+import { AngularFirestore } from '@angular/fire/firestore';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ArmazenamentoService {
+  public salvar(colecao: string, dado: any) {
+    // const id: string = Object.assign("", dado.uid);
 
-  /*this.store.doc(`/usuarios/${usuario.uid}`).set(usuario)
-          .then(novoSucesso => {
-            console.log('novo sucesso');
-            console.log(novoSucesso);
-          })
-          .catch(novoErro => {
-            console.log('novo sucesso');
-            console.log(novoErro);
-          });
-*/
+    // console.log(id);
 
 
-  constructor() { }
+    // delete dado.uid;
+
+    this.store
+      .doc(`/${colecao}/${dado.uid}`)
+      .set(dado);
+  }
+
+  constructor(private store: AngularFirestore) {}
 }
