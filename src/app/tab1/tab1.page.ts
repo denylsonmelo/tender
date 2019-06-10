@@ -1,20 +1,28 @@
 import { Router } from '@angular/router';
-import { Component } from '@angular/core';
-import { AutenticacaoService } from '../services/autenticacao.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonSlides } from '@ionic/angular';
 
+import { AutenticacaoService } from '../services/autenticacao.service';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit {
   usuario: any;
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
+
+  @ViewChild('slides') slides: IonSlides;
+
+  ngOnInit() {
+    this.slides.startAutoplay();
+  }
 
   logout() {
     this.autenticacao.logout();
-  }
-  outrometodo() {
-    this.router.navigate(['/perfil']);
   }
 
   constructor(

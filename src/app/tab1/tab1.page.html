@@ -1,8 +1,33 @@
 <ion-header> </ion-header>
 
 <ion-content padding>
-  {{ usuario | json }}
+  <div class="divCima" text-center>
+    <ion-avatar>
+      <img [src]="usuario.photoURL" />
+    </ion-avatar>
 
-  <ion-button (click)="outrometodo()">perfil</ion-button>
-  <ion-button (click)="logout()">Sair</ion-button>
+    <h2>{{ usuario.displayName }}</h2>
+    <p>{{ usuario.email }}</p>
+
+    <ion-button (click)="logout()">Sair</ion-button>
+    <ion-button (click)="logout()">Sair</ion-button>
+    <ion-button (click)="logout()">Sair</ion-button>
+  </div>
+
+  <div class="divBaixo" text-center>
+    <ion-slides pager="true" [options]="slideOpts" #slides>
+      <ion-slide>
+        <h1>Slide 1</h1>
+      </ion-slide>
+      <ion-slide>
+        <h1>Slide 2</h1>
+      </ion-slide>
+      <ion-slide>
+        <h1>Slide 3</h1>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-button (click)="logout()">Meu Tender Plus</ion-button>
+    <ion-button (click)="logout()">Sair</ion-button>
+  </div>
 </ion-content>
