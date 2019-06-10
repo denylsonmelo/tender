@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { AutenticacaoService } from '../services/autenticacao.service';
 
@@ -7,15 +8,21 @@ import { AutenticacaoService } from '../services/autenticacao.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
-usuario;
+  usuario: any;
 
   logout() {
-    this.auth.logout();
+    this.autenticacao.logout();
+  }
+  outrometodo() {
+    this.router.navigate(['/perfil']);
   }
 
-
-  constructor(private auth: AutenticacaoService) {
-    this.usuario = this.auth.user;
+  constructor(
+    private autenticacao: AutenticacaoService,
+    private router: Router
+  ) {
+    this.autenticacao.user.subscribe(dado => {
+      this.usuario = dado.providerData[0] || '';
+    });
   }
 }

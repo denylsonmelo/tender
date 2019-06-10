@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
@@ -13,28 +13,24 @@ import { AutenticacaoService } from '../services/autenticacao.service';
 @Injectable({
   providedIn: 'root'
 })
-export class TenderGuard implements CanActivate {
+export class TenderGuard implements CanActivate, OnInit {
   constructor(private router: Router, private service: AutenticacaoService) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean> {
-
-    this.service.user.subscribe(
-      sucesso => {
-
-        if (sucesso) {
-          console.log('sucesso');
-
-          return of(true);
-        } else {
-          console.log('caiu aqui');
-
+  ): Promise<boolean> {
+    return new Promise(resolve => {
+      this.service.getAuth().onAuthStateChanged(user => {
+        if (!user) {
           this.router.navigate(['/login']);
-          return of(false);
         }
+        resolve(user ? true : false);
       });
-      return of(false);
+    });
+  }
+
+  ngOnInit(): void {
+    console.log('init do guard');
   }
 }

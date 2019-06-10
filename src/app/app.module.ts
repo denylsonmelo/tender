@@ -15,6 +15,7 @@ import { environment } from '../environments/environment';
 
 import { AutenticacaoService } from './services/autenticacao.service';
 import { ArmazenamentoService } from './services/armazenamento.service';
+import { TenderGuard } from './guard/tender.guard';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +34,7 @@ import { ArmazenamentoService } from './services/armazenamento.service';
     SplashScreen,
     AutenticacaoService,
     ArmazenamentoService,
+    TenderGuard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
