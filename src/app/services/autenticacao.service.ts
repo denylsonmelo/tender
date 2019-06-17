@@ -18,13 +18,11 @@ export class AutenticacaoService {
     private autenticacao: AngularFireAuth,
     private armazenamento: ArmazenamentoService,
     private router: Router
-    ) {
-      console.log('entrou');
-
+  ) {
     this.user = autenticacao.authState;
   }
 
-  getAuth(){
+  getAuth() {
     return this.autenticacao.auth;
   }
 
@@ -34,14 +32,13 @@ export class AutenticacaoService {
     return this.autenticacao.auth
       .signInWithPopup(provider)
       .then(sucesso => {
-
         this.autenticado = true;
 
         const usuario = {
           nome: sucesso.user.displayName,
           email: sucesso.user.email,
           urlImagem: sucesso.user.photoURL,
-          uid: sucesso.user.uid,
+          uid: sucesso.user.uid
           // dataNascimento: sucesso.additionalUserInfo.profile.birthday,
         };
 
@@ -52,8 +49,6 @@ export class AutenticacaoService {
       .catch(erro => {
         return Promise.reject(erro.message);
       });
-
-
   }
 
   criarUsuario(usuario: string, senha: string) {
@@ -79,19 +74,16 @@ export class AutenticacaoService {
   }
 
   estaAutenticado() {
-
-    this.user.toPromise()
-    .then(valor => {
-      console.log('valor');
-      console.log(valor);
-
-    })
-    .catch(erro => {
-      console.log('erro');
-      console.log(erro);
-
-    });
-
+    this.user
+      .toPromise()
+      .then(valor => {
+        console.log('valor');
+        console.log(valor);
+      })
+      .catch(erro => {
+        console.log('erro');
+        console.log(erro);
+      });
 
     return false;
   }

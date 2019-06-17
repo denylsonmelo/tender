@@ -1,19 +1,17 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
-  UrlTree,
   CanActivate,
   Router
 } from '@angular/router';
-import { Observable, of } from 'rxjs';
 
 import { AutenticacaoService } from '../services/autenticacao.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TenderGuard implements CanActivate, OnInit {
+export class TenderGuard implements CanActivate {
   constructor(private router: Router, private service: AutenticacaoService) {}
 
   canActivate(
@@ -28,9 +26,5 @@ export class TenderGuard implements CanActivate, OnInit {
         resolve(user ? true : false);
       });
     });
-  }
-
-  ngOnInit(): void {
-    console.log('init do guard');
   }
 }
