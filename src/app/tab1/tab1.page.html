@@ -1,6 +1,6 @@
 <ion-header> </ion-header>
 
-<ion-content padding>
+<ion-content>
   <div class="divCima" text-center>
     <ion-avatar>
       <img [src]="usuario.photoURL" />
@@ -9,15 +9,28 @@
     <h2>{{ usuario.displayName }}</h2>
     <p>{{ usuario.email }}</p>
 
-    <ion-button (click)="logout()">Sair</ion-button>
-    <ion-button (click)="logout()">Sair</ion-button>
-    <ion-button (click)="logout()">Sair</ion-button>
+    <div>
+      <ion-buttons>
+        <ion-button  class="botoesLaterais" >
+          <ion-icon slot="icon-only" name="settings"></ion-icon>
+        </ion-button>
+
+        <ion-button padding >
+          <ion-icon slot="icon-only" name="camera"></ion-icon>
+        </ion-button>
+
+        <ion-button  class="botoesLaterais" >
+          <ion-icon fill="default" name="create"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
   </div>
 
   <div class="divBaixo" text-center>
     <ion-slides pager="true" [options]="slideOpts" #slides>
       <ion-slide>
         <h1>Slide 1</h1>
+        <p>Conteudo do slide foda</p>
       </ion-slide>
       <ion-slide>
         <h1>Slide 2</h1>
@@ -27,7 +40,9 @@
       </ion-slide>
     </ion-slides>
 
-    <ion-button (click)="logout()">Meu Tender Plus</ion-button>
-    <ion-button (click)="logout()">Sair</ion-button>
+    <div>
+      <ion-button class="centralizar botoesFundo" expand="block" shape="round" (click)="logout()">Meu Tender Plus</ion-button>
+      <ion-button class="centralizar botoesFundo" expand="block" shape="round" (click)="logout()">Sair</ion-button>
+    </div>
   </div>
 </ion-content>

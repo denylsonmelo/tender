@@ -1,13 +1,40 @@
-.divCima{
-    ion-avatar{
+ion-buttons {
+    margin: 0 auto;
+    justify-content: center;
+}
+
+ion-button {}
+
+.botoesLaterais {
+    padding-bottom: 10%;
+    --background: #ffffff;
+}
+
+.centralizar {
+    margin: 0 auto;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.botoesFundo {
+    --background: #fefefe;
+    color: red;
+    font-weight: bold;
+    width: 70%;
+}
+
+.divCima {
+    ion-avatar {
         margin: 0 auto;
     }
-    background: #789978;
-    border-bottom-left-radius: 50px; 
-    border-bottom-right-radius: 50px; 
+
+    background: #f0eef3;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
 }
-ion-content{
-    --background:#789123; 
+
+ion-content {
+    --background: #e9e7ec;
 }
-.divBaixo{
-}
+
+.divBaixo {}
