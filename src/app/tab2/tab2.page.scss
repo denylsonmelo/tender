@@ -1,3 +1,9 @@
+ion-content{
+    --background: #f0eef3;
+}
+ion-toolbar{
+    --background: #f0eef3;
+}
 .capa-pessoa {
     margin-top: 1%;
     margin-left: 9%;
@@ -39,11 +45,15 @@
 }
 
 ion-buttons{
-    justify-content: center;
+    justify-content: space-between;
+    
 }
 
 ion-button{
     justify-content: center;
+    background: #fefefe;
+    border-radius: 50%;
+    margin: 0 15px 0 15px;
 }
 
 #maior{

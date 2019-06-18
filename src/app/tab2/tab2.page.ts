@@ -30,13 +30,13 @@ export class Tab2Page {
       estudo: 'Balé (professora e bailarina), espiã, vingadora',
       mostrarIdade: true,
       mostrarLocalizacao: true,
-      urlImagem: './../../assets/images/scarlet.jpeg'
+      urlImagem: './../../assets/images/scarlet04.jpg'
     }
   ];
 
-  calcularAnos(){
-    var diferencaDatas =  Date.now() - this.pessoas[1].dataNascimento.getTime();
-    var anos = new Date(diferencaDatas); 
+  calcularAnos() {
+    const diferencaDatas =  Date.now() - this.pessoas[1].dataNascimento.getTime();
+    const anos = new Date(diferencaDatas);
     return Math.abs(anos.getUTCFullYear() - 1970);
   }
 }
