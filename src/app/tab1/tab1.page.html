@@ -11,38 +11,60 @@
 
     <div>
       <ion-buttons>
-        <ion-button  class="botoesLaterais" >
+        <ion-button class="botoesLaterais">
           <ion-icon slot="icon-only" name="settings"></ion-icon>
         </ion-button>
 
-        <ion-button padding >
+        <ion-button class="botaoCentral">
           <ion-icon slot="icon-only" name="camera"></ion-icon>
         </ion-button>
 
-        <ion-button  class="botoesLaterais" >
+        <ion-button class="botoesLaterais">
           <ion-icon fill="default" name="create"></ion-icon>
         </ion-button>
       </ion-buttons>
     </div>
   </div>
 
-  <div class="divBaixo" text-center>
+  <div class="divBaixo" text-center padding>
     <ion-slides pager="true" [options]="slideOpts" #slides>
-      <ion-slide>
-        <h1>Slide 1</h1>
-        <p>Conteudo do slide foda</p>
+      <ion-slide padding>
+        <p>
+          <ion-icon name="flame" style="color: #FF8C00"></ion-icon>Get Tender Gold<br />
+          <span style="font-size: 10px;">See who Likes You & more!</span>
+        </p>
       </ion-slide>
-      <ion-slide>
-        <h1>Slide 2</h1>
+      <ion-slide padding>
+        <p>
+          <ion-icon name="flash" style="color: purple"></ion-icon>Get Matches Faster<br />
+          <span style="font-size: 10px;">Boost your profile once a month!</span>
+        </p>
       </ion-slide>
-      <ion-slide>
-        <h1>Slide 3</h1>
+      <ion-slide padding>
+        <p>
+          <ion-icon name="star" style="color: #00BFFF "></ion-icon>Stand Out With Super Likes<br />
+          <span style="font-size: 10px;">You're 3x more likely to get a match!</span>
+        </p>
+      </ion-slide>
+
+      <ion-slide padding>
+        <p>
+          <ion-icon name="pin" style="color: blue"></ion-icon>Swipe Around the World<br />
+          <span style="font-size: 10px;">Passport to anywhere with Tender Plus!</span>
+        </p>
+      </ion-slide>
+      <ion-slide padding>
+        <p>
+          <ion-icon name="key" style="color: purple"></ion-icon>Control Your Profile<br />
+          <span style="font-size: 10px;">Limit what others see with Tender Plus</span>
+        </p>
       </ion-slide>
     </ion-slides>
+  </div>
 
-    <div>
-      <ion-button class="centralizar botoesFundo" expand="block" shape="round" (click)="logout()">Meu Tender Plus</ion-button>
-      <ion-button class="centralizar botoesFundo" expand="block" shape="round" (click)="logout()">Sair</ion-button>
-    </div>
+  <div class="btsFundo">
+    <ion-button class="centralizar botoesFundo" expand="block" shape="round" (click)="logout()">Meu Tender Plus
+    </ion-button>
+    <ion-button class="centralizar botoesFundo" expand="block" shape="round" (click)="logout()">Sair</ion-button>
   </div>
 </ion-content>
