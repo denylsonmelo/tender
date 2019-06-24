@@ -22,10 +22,11 @@ ion-icon{
     border: 2px solid #f5f5f5;
     border-radius: 50%;
     margin-bottom: 10%;
+    color: #9d9d9f;
 }
 
 .botaoCentral{
-    background-image: linear-gradient(to bottom right, red, yellow);
+    background-image: linear-gradient(to bottom right, #fc287b, #fd6b5a);
     display:block;
     width:50px;
     height:50px;
@@ -33,7 +34,8 @@ ion-icon{
     border: 2px solid #f5f5f5;
     border-radius: 50%;
     margin-left: 5%;
-    margin-right: 5%;    
+    margin-right: 5%; 
+    color: white;   
 }
 
 .centralizar {
@@ -57,7 +59,6 @@ ion-icon{
     background: #f0eef3;
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
-    margin-top: 10px;
 }
 
 ion-content {
@@ -68,6 +69,6 @@ ion-content {
     margin-top: 40px;
 }
 
-.btsFundo {
+.divBotoes {
     margin-top: 50px;
 }

@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 
 import { AutenticacaoService } from '../services/autenticacao.service';
+import { ArmazenamentoService } from '../services/armazenamento.service';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -14,6 +15,7 @@ export class Tab1Page implements OnInit {
     initialSlide: 1,
     speed: 400
   };
+  slidesAds: Array<any>;
 
   @ViewChild('slides') slides: IonSlides;
 
@@ -27,10 +29,15 @@ export class Tab1Page implements OnInit {
 
   constructor(
     private autenticacao: AutenticacaoService,
-    private router: Router
+    private armazenamento: ArmazenamentoService
   ) {
     this.autenticacao.user.subscribe(dado => {
       this.usuario = dado.providerData[0] || '';
+    });
+
+    this.armazenamento.buscarAdsSlides().subscribe(dado => {
+      console.log(dado);
+      this.slidesAds = dado;
     });
   }
 }
