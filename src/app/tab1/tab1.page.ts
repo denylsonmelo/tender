@@ -1,6 +1,4 @@
-import { Router } from '@angular/router';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { Component } from '@angular/core';
 
 import { AutenticacaoService } from '../services/autenticacao.service';
 import { ArmazenamentoService } from '../services/armazenamento.service';
@@ -10,19 +8,9 @@ import { SlidesAds } from '../models/classes.model';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page implements OnInit {
+export class Tab1Page {
   usuario: any;
-  slideOpts = {
-    initialSlide: 1,
-    speed: 400
-  };
   slidesAds: Array<SlidesAds>;
-
-  @ViewChild('slides') slides: IonSlides;
-
-  ngOnInit() {
-    this.slides.startAutoplay();
-  }
 
   logout() {
     this.autenticacao.logout();

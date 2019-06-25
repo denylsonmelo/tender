@@ -27,7 +27,7 @@ import { TenderGuard } from './guard/tender.guard';
 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
   ],
   providers: [
     StatusBar,
@@ -37,6 +37,7 @@ import { TenderGuard } from './guard/tender.guard';
     TenderGuard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule {}

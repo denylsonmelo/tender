@@ -26,16 +26,7 @@
     </div>
   </div>
 
-  <div class="divBaixo" text-center padding>
-    <ion-slides pager="true" [options]="slideOpts" #slides>
-      <ion-slide padding *ngFor="let ads of slidesAds" >
-        <p>
-          <ion-icon [name]="ads.iconName" [style.color]="ads.iconColor"></ion-icon>{{ads.slideName}}<br />
-          <span style="font-size: 10px;">{{ads.slideDescription}}</span>
-        </p>
-      </ion-slide>
-    </ion-slides>
-  </div>
+  <app-slides-de-propaganda [propagandas]="slidesAds"></app-slides-de-propaganda>
 
   <div class="divBotoes">
     <ion-button class="centralizar botoesFundo" expand="block" shape="round" (click)="logout()">Meu Tender Plus</ion-button>

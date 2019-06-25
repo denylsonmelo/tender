@@ -1,0 +1,11 @@
+<div class="divBaixo" text-center padding>
+  alguma coisa
+  <ion-slides pager="true" [options]="opcoes" #slides>
+    <ion-slide padding *ngFor="let propaganda of propagandas" >
+      <p>
+        <ion-icon [name]="propaganda.iconName" [style.color]="propaganda.iconColor"></ion-icon>{{propaganda.slideName}}<br />
+        <span style="font-size: 10px;">{{propaganda.slideDescription}}</span>
+      </p>
+    </ion-slide>
+  </ion-slides>
+</div>
