@@ -4,6 +4,7 @@ import { IonSlides } from '@ionic/angular';
 
 import { AutenticacaoService } from '../services/autenticacao.service';
 import { ArmazenamentoService } from '../services/armazenamento.service';
+import { SlidesAds } from '../models/classes.model';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -15,7 +16,7 @@ export class Tab1Page implements OnInit {
     initialSlide: 1,
     speed: 400
   };
-  slidesAds: Array<any>;
+  slidesAds: Array<SlidesAds>;
 
   @ViewChild('slides') slides: IonSlides;
 
@@ -36,7 +37,6 @@ export class Tab1Page implements OnInit {
     });
 
     this.armazenamento.buscarAdsSlides().subscribe(dado => {
-      console.log(dado);
       this.slidesAds = dado;
     });
   }
